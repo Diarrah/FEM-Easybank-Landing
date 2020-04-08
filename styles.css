@@ -5,11 +5,6 @@
     margin: 0; padding: 0;
 }
 
-html {
-    font-family: 'Public Sans', sans-serif;
-    font-size: 18px;
-}
-
 :root {
     --blue: hsl(233, 26%, 24%);
     --lime: hsl(136, 65%, 51%);
@@ -19,3 +14,199 @@ html {
     --light-gray: hsl(0, 0%, 98%);
     --white: hsl(0, 0%, 100%);
 }
+
+body::-webkit-scrollbar { width: 0.5rem; }
+body::-webkit-scrollbar-thumb { background: linear-gradient(to top, var(--blue), var(--lime)); }
+
+/* Typography */
+html {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 18px;
+}
+
+h1, h2, h3, h4 { font-weight: 300; }
+h1 { font-size: 3em; }
+h3 { padding: 15px 0; }
+h4 { 
+    margin: 10px 0;
+    font-size: 130%; }
+h4:hover { color: var(--lime); }
+
+small { color: var(--grayish-blue); }
+p { 
+    max-width: 600px;
+    color: var(--grayish-blue); 
+    line-height: 1.5;
+}
+
+a { text-decoration: none; 
+    color: inherit; }
+ul { list-style: none; display: flex; }
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 70px;
+    height: 70px;
+}
+
+.navbar__links {
+    width: 350px;
+    justify-content: space-between;
+    color: var(--grayish-blue);
+    font-size: 12px;
+}
+
+.navbar__links li { padding: 27px 0px; }
+.navbar__links li:hover { 
+    border-bottom: 4px solid;
+    border-image: linear-gradient(to right, var(--lime), var(--bright-cyan)); 
+    border-image-slice: 1;
+  }  
+
+.mobile-btn { display: none; }
+
+/* Button */
+.btn {
+    font-family: inherit;
+    background: linear-gradient(to right, var(--lime), var(--bright-cyan));
+    color: var(--white);
+    border: none;
+    border-radius: 100px;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 10px 20px;
+    max-width: 140px;
+    cursor: pointer;
+}
+
+.btn:hover { filter: brightness(1.08); }
+.btn:focus { outline: none; }
+.btn:active { transform: scale(0.98); }
+
+/*Main Img */
+.main__img__container {
+    position: absolute;
+    z-index: 2;
+    right: 0;
+    overflow-x: hidden;
+}
+
+.main__img { transform: scale(.92) translateX(25%) translateY(-20%); }
+
+/* Header */
+.header {
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    background-color: var(--light-gray);
+    padding: 0 0 0 70px;
+    min-height: 530px;   
+    overflow: hidden; 
+}
+
+.header::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0; left: 0; right: -200px;
+    background-image: url(images/bg-intro-desktop.svg);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: translateX(30%);
+}
+
+.header__text { 
+    margin: auto 0;
+    max-width: 40%;
+}
+
+/* Why Easybank Section */
+.why__Easybank {
+    background-color: var(--light-grayish-blue);
+    padding: 100px 70px;
+}
+
+.feature__card__container { 
+    display: flex; 
+    justify-content: space-between;
+    margin-top: 50px;   
+}
+
+.feature__card { width: calc(90% / 4); }
+.feature__card p { font-size: 15px; }
+
+/* Article Cards */
+.articles__section { 
+    background-color: var(--light-gray);
+    padding: 70px; }
+
+.articles__container { 
+    display: flex; 
+    justify-content: space-between; 
+    font-size: 85%;
+}
+
+.article__card {
+    background-color: var(--white);
+    width: calc(95% / 4);
+    border: none;
+    border-radius: 5px;
+    padding-bottom: 15px;
+    overflow: hidden;
+}
+.article__card small { margin: 10px 0; }
+
+.article-img { 
+    height: 200px; width: 100%;
+    margin-bottom: 30px; }
+
+.card__text { padding: 0 20px; } 
+
+/* Footer */
+.footer { 
+    background-color: var(--blue); 
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    padding: 40px 70px;
+}
+
+.social__links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+}
+
+.social__icons {
+    width: 60%;
+    justify-content: space-between; 
+}
+
+.resource__links { 
+    display: flex; 
+    justify-content: space-between;
+}
+
+.resource__links ul {
+    color: var(--light-grayish-blue);
+    display: block;
+    font-size: 80%;
+    margin-bottom: -15px;
+}
+
+.resource__links li { margin-bottom: 15px; }
+.resource__links li a:hover { color: var(--lime); opacity: 0.8; }
+
+.footer__btn {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    grid-column: 4 / 5;
+    align-items: flex-end;
+    text-align: right;
+}
+
+/* MQs */
