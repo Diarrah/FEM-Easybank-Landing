@@ -64,8 +64,8 @@ ul { list-style: none; display: flex; }
 }
 
 .navbar__links a {
-    padding: 28px 0;
     position: relative;
+    padding: 28px 0;
 }  
 
 .navbar__links a::after {
@@ -86,6 +86,8 @@ ul { list-style: none; display: flex; }
     height: 4px; width: 100%;
     background: linear-gradient(to right, var(--lime), var(--bright-cyan));
 }
+
+.show .navbar__links { transform: translateY(0); }
 
 /* Mobile Nav */
 .mobile-btn { 
@@ -120,7 +122,7 @@ ul { list-style: none; display: flex; }
     justify-content: space-between;
     background-color: var(--light-gray);
     padding-left: 70px;
-    height: 530px; width: 100vw; 
+    height: 530px; max-width: 100vw;
 }
 
 .header__text { 
@@ -187,8 +189,9 @@ ul { list-style: none; display: flex; }
 .article__card small { margin: 10px 0; }
 
 .article-img { 
-   height: 40%; width: 100%;
-    margin-bottom: 30px; }
+   height: 40%; max-height: 175px;
+   width: 100%;
+   margin-bottom: 30px; }
 
 .card__text { padding: 0 20px; } 
 
@@ -245,6 +248,7 @@ ul { list-style: none; display: flex; }
     .navbar__links { width: 300px; }
 
     .header { height: 430px; }
+    
     .why__Easybank,
     .articles__section { padding: 50px 70px; }
 
@@ -254,4 +258,123 @@ ul { list-style: none; display: flex; }
     .footer { grid-template-columns: repeat(3, 1fr); }
     .footer__btn { grid-column: 3 / 4; }
     .footer__btn small { font-size: 70%; }
+}
+
+@media screen and (max-width: 804px) {
+    p { max-width: 100%; }
+
+    .desktop__bg,
+    .navbar .btn,
+    .close-out { display: none; }
+
+    .mobile__bg,
+    .mobile-btn,
+    .hamburger { display: block; }
+
+    .mobile__bg { transform: scale(2.5); }
+
+    .main__img__container { height: 60%; }
+    .main__img { transform: translateY(-15%) scale(1.7); }
+
+    .navbar__links {
+        background-color: var(--white);
+        color: var(--blue);
+        position: absolute;
+        flex-direction: column;
+        border: none;
+        border-radius: 10px;
+        padding: 20px 0;
+        left: 20px; top: 80px;
+        width: calc(100% - 40px);
+        font-size: 18px;
+        text-align: center;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        transform: translateY(-200%);
+        transition: 0.8s ease;
+    }
+
+    .navbar__links li { margin-bottom: 15px; }
+    .navbar__links li:last-of-type { margin-bottom: 0; }
+
+    .navbar__links a:hover::after { display: none; }
+
+    .show .hamburger { display: none; }
+    .show .close-out { display: block; }
+    .show .header { filter: brightness(0.5); }
+
+    .header { 
+        position: relative;
+        flex-direction: column-reverse;
+        height: 700px;
+        padding-left: 0;
+    }
+
+    .header__text { 
+        background-color: var(--white); 
+        height: 22%; max-width: 100%;
+        padding: 30px 15px;
+        z-index: 4;
+    }
+
+    .feature__card__container,
+    .articles__container,
+    .resource__links,
+    .footer { 
+        display: flex;
+        flex-direction: column; }
+
+    .article__card,
+    .feature__card { 
+        margin-bottom: 30px;
+        width: 100%; }
+
+    .article__card:last-of-type,
+    .feature__card:last-of-type { margin-bottom: 0; }
+
+    .articles__container,
+    .article__card { 
+        max-width: 450px;
+        margin: 0 auto 30px;
+    }
+
+    h2,
+    .header,
+    .why__Easybank,
+    .feature__card,
+    .footer, 
+    .footer__btn { 
+        text-align: center;
+        align-items: center; }
+
+    .social__icons { margin: 25px 0; }
+    .resource__links ul { margin-bottom: 0; }
+    .footer__btn .btn { margin-top: 20px; }
+}
+
+@media screen and (max-width: 675px) {
+    html { font-size: 14px; }
+    h1 { font-size: 2em; }
+
+    .navbar { padding: 0 30px; }
+    .header__text { height: 40%; }
+
+    .header { height: 500px; }
+
+    .main__img { transform: translateY(-20%) scale(1.7); }
+    .mobile__bg { transform:  translateY(-10%) scale(3.5); }
+
+    .main__img__container { height: 50%; }
+
+    .why__Easybank,
+    .articles__section { padding: 50px 30px; }
+}
+
+@media screen and (max-width: 497px) {
+    .navbar { padding: 0 15px; }
+    .header__text { min-height: 280px; }
+    .mobile__bg { transform: translateY(-20%) scale(3); }
+}
+
+@media screen and (max-width: 390px) {
+    .main__img { transform: translateX(8%) translateY(-20%) scale(1.5); }
 }
